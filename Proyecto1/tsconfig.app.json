@@ -7,9 +7,9 @@
     "types": []
   },
   "include": [
-    "Proyecto1/src/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
-    "Proyecto1/src/**/*.spec.ts"
+    "src/**/*.spec.ts"
   ]
 }
