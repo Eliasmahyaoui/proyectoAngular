@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "proyectoAngular": {
+    "Proyecto1": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "proyectoAngular:build:production"
+              "buildTarget": "Proyecto1:build:production"
             },
             "development": {
-              "buildTarget": "proyectoAngular:build:development"
+              "buildTarget": "Proyecto1:build:development"
             }
           },
           "defaultConfiguration": "development"
