@@ -8,8 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Ejercicios implements OnInit {
 
-  nombre= "elias mahyaoui";
-
   numero: number = 0;
 
   duplicar(numero: number): number {
