@@ -8,5 +8,29 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-public readonly title = signal('Elias Mahyaoui');
+protected readonly title = signal('Elias Fellah');
+
+  //Las declaraciones van fuera siempre,
+  nombre:String = 'Elias Mahyaoui';
+  edad:number= 27;
+  activo:boolean= true;
+  ngOnInit(){
+  //dentro de la funcion solo propiedades y metodos
+    this.nombre;
+    this.edad;
+    this.activo;
+    console.log(`Nombre:${this.nombre}`);
+    console.log(`Nombre:${this.edad}`);
+    console.log(`Nombre:${this.activo}`);
+
+
+
+
+
+
+
+  }
+
+
+
 }
