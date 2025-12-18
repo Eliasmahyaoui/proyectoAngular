@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IProduct } from '../interfaces/i-product';
+
 @Component({
   selector: 'product-list',
   imports: [],
