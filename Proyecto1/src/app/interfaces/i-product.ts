@@ -3,6 +3,8 @@ export interface IProduct {
   desc: string;
   price: number;
   avail: Date;
+  marca:string;
+  model:string;
   imageUrl: string;
   rating: number;
 
