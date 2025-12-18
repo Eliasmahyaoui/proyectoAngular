@@ -10,7 +10,7 @@ import { IProduct } from '../interfaces/i-product';
 export class ProductList {
 
   title = "Mi lista de productos"
-  headers = { desc: 'Producto', price: 'Precio', avail: 'Disponible', marca: 'Marca', modelo:'model' };
+  headers = { desc: 'Producto', price: 'Precio', avail: 'Disponible', marca: 'Marca', model:'model' };
 
 
   products: IProduct[] = [
@@ -18,8 +18,8 @@ export class ProductList {
       id: 1,
       desc: 'SSD hard drive',
       avail: new Date('2016-10-03'),
-      marca: 'Macbook',
-      model:'air M4',
+      marca: 'AOC',
+      model:'T5605',
       price: 75,
       imageUrl: '/ssd.jpg',
       rating: 5,
@@ -28,8 +28,8 @@ export class ProductList {
       id: 2,
       desc: 'LGA1151 Motherboard',
       avail: new Date('2016-09-15'),
-      marca: 'Macbook',
-      model:'air M4',
+      marca: 'AOC',
+      model:'T560',
       price: 96.95,
       imageUrl: '/motherboard.jpg',
       rating: 4,
