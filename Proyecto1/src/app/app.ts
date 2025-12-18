@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+import { ProductList } from './product-list/product-list';
 @Component({
 
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ProductList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 
@@ -12,7 +12,7 @@ import { RouterOutlet } from '@angular/router';
 
 
 export class App {
-  protected readonly title = signal('Elias Fellah');
+  protected readonly title = signal('Elias Mahyaoui Fellah');
 
   //Las declaraciones van fuera siempre,
 
