@@ -19,7 +19,7 @@ events: IEvent[]=[
       price: 25
   },
   {
-      title: 'Anuel AA',
+      title: 'Concierto Anuel AA',
       image:'',
       date:new Date('2026-10-03'),
       description: 'Concierto de trap en el Roig Arena ',
