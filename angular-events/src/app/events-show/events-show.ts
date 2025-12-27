@@ -25,7 +25,7 @@ events: IEvent[]=[
       description: 'Concierto de trap en el Roig Arena ',
       price: 35
   },
-];
+]
 
 
 }
