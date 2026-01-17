@@ -1,0 +1,9 @@
+<img [src]="profileImage" alt="">
+<button [ngClass]="{'Premium' : isPremium, 'basica' : !isPremium } "
+(click)="toggleisPremium()"
+>
+Ver cuenta: {{ isPremium ? 'Premium' : 'Basica' }}
+
+</button>
+
+

@@ -42,9 +42,6 @@ export class App {
 
 
 
-
-
-
   ngOnInit() { //dentro de la funcion solo propiedades y metodos
 
 
