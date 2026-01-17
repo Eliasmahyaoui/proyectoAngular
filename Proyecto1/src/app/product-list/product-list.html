@@ -8,6 +8,7 @@
       <table style="width: 100%">
         <thead>
           <tr style="background-color: lightgrey; text-align: center">
+            <th>{{headers.image}}</th>
             <th>{{ headers.desc }}</th>
             <th>{{ headers.price }}</th>
             <th>{{ headers.avail }}</th>
@@ -18,6 +19,7 @@
         <tbody>
           @for (product of products; track product.id) {
           <tr >
+            <td><img [src]="product.imageUrl" alt=""></td>
             <td>{{ product.desc }}</td>
             <td>{{ product.price }}</td>
             <td>{{ product.avail }}</td>

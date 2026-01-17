@@ -10,7 +10,7 @@ import { IProduct } from '../interfaces/i-product';
 export class ProductList {
 
   title = "Mi lista de productos"
-  headers = { desc: 'Producto', price: 'Precio', avail: 'Disponible', marca: 'Marca', model:'model' };
+  headers = { image: 'ImageUrl',desc: 'Producto', price: 'Precio', avail: 'Disponible', marca: 'Marca', model:'model' };
 
 
   products: IProduct[] = [
