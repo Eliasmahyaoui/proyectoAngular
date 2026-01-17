@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { NgClass } from "@angular/common";
+import { NgClass, NgStyle } from "@angular/common";
 
 
 @Component({
   selector: 'user-profile',
-  imports: [NgClass],
+  imports: [NgClass, NgStyle],
   templateUrl: './user-profile.html',
   styleUrl: './user-profile.css',
 })
 export class UserProfile {
   profileImage = 'avatar.png';
-  isPremium = false;
+  isPremium = true;
 toggleisPremium() {
 this.isPremium = !this.isPremium;
 }
