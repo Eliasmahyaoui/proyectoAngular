@@ -11,7 +11,7 @@ export class TextStyle {
 
   fontsize= 20;
   isError= false;
-  selected= tr;
+  selected= true;
 
   classStyle ={
     border: this.selected ? '2px solid blue' : '2px solid gray'
