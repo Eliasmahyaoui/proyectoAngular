@@ -1,12 +1,7 @@
-<img [src]="profileImage" alt="">
-[
-<button
-ngStyle]="{'background-color': isPremium'Cuenta Premium ':'Cuenta basica '}"
-[ngClass]="{'Premium' : isPremium, 'basica' : !isPremium } "
-(hover)="toggleisPremium()"
->
-Ver cuenta: {{ isPremium ? 'Premium' : 'Basica' }}
+<img [src]="profileImage" alt="" />
 
+<button [ngClass]="{ Premium: isPremium, basica: !isPremium }" 
+        (click)="toggleisPremium()"
+        >
+        Cuenta: {{ isPremium ? 'Cuenta Premium' : 'Cuenta basica' }}
 </button>
-
-
