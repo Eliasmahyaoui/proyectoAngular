@@ -1,14 +1,18 @@
 import { Component, signal } from '@angular/core';
 import { UserProfile } from './user-profile/user-profile';
-import { NgClass } from '@angular/common';
+import { CurrencyPipe, NgClass } from '@angular/common';
 import { TextStyle } from './text-style/text-style';
 import { StatusRow } from './status-row/status-row';
+import { HoverButton } from './hover-button/hover-button';
+import { SearchBox } from './search-box/search-box';
+import { PriceView } from './price-view/price-view';
 @Component({
   selector: 'app-root',
-  imports: [UserProfile, TextStyle, StatusRow],
+  imports: [UserProfile, TextStyle, StatusRow, HoverButton, SearchBox, PriceView],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
+
 export class App {
   protected readonly title = signal('Ejercicio1');
 }
