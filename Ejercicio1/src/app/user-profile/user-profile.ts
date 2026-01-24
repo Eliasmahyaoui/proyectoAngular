@@ -11,8 +11,8 @@ import { NgClass } from "@angular/common";
 export class UserProfile {
   profileImage = 'avatar.png';
   isPremium = false;
-toggleisPremium() {
-this.isPremium = !this.isPremium;
-}
+  toggleisPremium() {
+    this.isPremium = !this.isPremium;
+  }
 
 }

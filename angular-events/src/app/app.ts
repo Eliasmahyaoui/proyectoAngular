@@ -4,7 +4,7 @@ import { EventsShow } from './events-show/events-show';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, EventsShow],
+  imports: [ EventsShow],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
