@@ -13,45 +13,52 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './events-show.css',
 })
 export class EventsShow {
-filterBy: string = '';
 
-orderDate() {
+  filterBy: string = '';
+
+  events: IEvent[] = [
+    {
+      title: 'Concierto eladio carrion',
+      image: '/eventoEE.jpg',
+      date: new Date(),
+      description: 'Concierto de trap en el palau Sant Jordi',
+      price: 55,
+    },
+    {
+      title: 'Concierto anuel',
+      image: '/eventoA.jpg',
+      date: new Date(),
+      description: 'Concierto de trap en el Roig Arena',
+      price: 60,
+    }
+  ];
+
+  get filteredEvents(): IEvent[] {
+    if (!this.filterBy) {
+      return this.events;
+    }
+
+    const filter = this.filterBy.toLowerCase();
+    return this.events.filter(event =>
+      event.title.toLowerCase().includes(filter)
+    );
+  }
+
+  orderDate() {
     this.filterBy = '';
     this.events.sort((a, b) =>
       a.date.getTime() - b.date.getTime()
     );
   }
 
-orderPrice() {
+  orderPrice() {
     this.filterBy = '';
     this.events.sort((a, b) =>
       a.price - b.price
     );
   }
-
-
-events: IEvent[]=[
-  {
-      title: 'Concierto eladio carrion',
-      image: '/eventoEE.jpg',
-      date: new Date,
-      description: 'Concierto de trap en el palau Sant Jordi',
-      price: 55,
-
-  },
-  {
-      title: 'Concierto anuel ',
-      image:'/eventoA.jpg',
-      date:new Date,
-      description: 'Concierto de trap en el Roig Arena ',
-      price: 60,
-
-
-  },
-]
-
-
 }
+
 
 
 
