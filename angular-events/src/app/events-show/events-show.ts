@@ -15,19 +15,50 @@ import { FormsModule } from '@angular/forms';
 export class EventsShow {
 
   filterBy: string = '';
+  newEvent: IEvent = {
+    title: '',
+    description: '',
+    image: '',
+    price: 0,
+    date: '',
+  };
+
+  addEvent() {
+    this.events.push({ ...this.newEvent });
+
+    this.newEvent = {
+      title: '',
+      description: '',
+      image: '',
+      price: 0,
+      date: '',
+    };
+  }
+
+  changeImage(fileInput: HTMLInputElement) {
+    if (!fileInput.files || fileInput.files.length === 0) {
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.readAsDataURL(fileInput.files[0]);
+    reader.onload = () => {
+      this.newEvent.image = reader.result as string;
+    };
+  }
 
   events: IEvent[] = [
     {
       title: 'Concierto eladio carrion',
       image: '/eventoEE.jpg',
-      date: new Date(),
+      date: '2026-07-04',
       description: 'Concierto de trap en el palau Sant Jordi',
       price: 55,
     },
     {
       title: 'Concierto anuel',
       image: '/eventoA.jpg',
-      date: new Date(),
+      date: '2026-04-25',
       description: 'Concierto de trap en el Roig Arena',
       price: 60,
     }
@@ -45,11 +76,13 @@ export class EventsShow {
   }
 
   orderDate() {
-    this.filterBy = '';
-    this.events.sort((a, b) =>
-      a.date.getTime() - b.date.getTime()
-    );
-  }
+  this.filterBy = '';
+  this.events.sort((a, b) => {
+    let fechaA = new Date(a.date);
+    let fechaB = new Date(b.date);
+    return fechaA.getTime() - fechaB.getTime();
+  });
+}
 
   orderPrice() {
     this.filterBy = '';
