@@ -36,15 +36,12 @@ export class EventsShow {
   }
 
   changeImage(fileInput: HTMLInputElement) {
-    if (!fileInput.files || fileInput.files.length === 0) {
-      return;
-    }
-
-    const reader = new FileReader();
+    if (!fileInput.files || fileInput.files.length === 0) { return; }
+    const reader: FileReader = new FileReader();
     reader.readAsDataURL(fileInput.files[0]);
-    reader.onload = () => {
+    reader.addEventListener('loadend', e => {
       this.newEvent.image = reader.result as string;
-    };
+    });
   }
 
   events: IEvent[] = [
@@ -76,13 +73,13 @@ export class EventsShow {
   }
 
   orderDate() {
-  this.filterBy = '';
-  this.events.sort((a, b) => {
-    let fechaA = new Date(a.date);
-    let fechaB = new Date(b.date);
-    return fechaA.getTime() - fechaB.getTime();
-  });
-}
+    this.filterBy = '';
+    this.events.sort((a, b) => {
+      let fechaA = new Date(a.date);
+      let fechaB = new Date(b.date);
+      return fechaA.getTime() - fechaB.getTime();
+    });
+  }
 
   orderPrice() {
     this.filterBy = '';
