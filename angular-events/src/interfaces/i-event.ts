@@ -4,4 +4,5 @@ image:string;
 date:Date;
 description:string;
 price:number;
+
 }

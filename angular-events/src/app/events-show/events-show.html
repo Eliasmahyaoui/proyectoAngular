@@ -10,18 +10,39 @@
 </head>
 
 <body>
-  <div class="row">
+  <nav class="navbar navbar-light bg-light justify-content-between mt-3">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="orderDate()">Orden por fecha</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="orderPrice()">Orden por precio</a>
+      </li>
+    </ul>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="text" [(ngModel)]="filterBy" name="search" placeholder="Search"
+        aria-label="Search">
+    </form>
+  </nav>
 
+
+
+
+
+
+
+
+  <div class="row">
     @if (events.length==0) {
     <h3>No hay eventos disponibles</h3>
     }
-    @for (event of events; track event.description) {
+    @for (event of events | eventFilter: filterBy; track event.title) {
     <div class="col-6 mt-4">
       <div class="card">
         <img class="card-img-top" [src]="event.image" alt="imagenes del evento">
         <div class="card-body">
 
-          <h4 class="card-title">{{event.title|titlecase}}</h4>
+          <h4 class="card-title">{{event.title| titlecase}}</h4>
           <p class="card-text">{{event.description}}</p>
         </div>
 
