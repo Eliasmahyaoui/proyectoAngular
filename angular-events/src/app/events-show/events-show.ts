@@ -87,6 +87,8 @@ export class EventsShow {
       a.price - b.price
     );
   }
+
+  
 }
 
 
