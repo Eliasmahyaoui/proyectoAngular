@@ -3,16 +3,30 @@ import { IEvent } from '../../interfaces/i-event';
 import { CurrencyPipe, DatePipe, TitleCasePipe } from '@angular/common';
 import { EventFilterPipe } from '../pipes/event-filter-pipe';
 import { FormsModule } from '@angular/forms';
+import { EventItem } from "../event-item/event-item";
+import { EventAdd } from "../event-add/event-add";
 
 
 
 @Component({
   selector: 'app-events-show',
-  imports: [TitleCasePipe, CurrencyPipe, DatePipe, EventFilterPipe, FormsModule],
+  imports: [EventFilterPipe, FormsModule, EventItem, EventAdd],
   templateUrl: './events-show.html',
   styleUrl: './events-show.css',
 })
 export class EventsShow {
+
+
+
+
+
+
+deleteEvent(eventToDelete: IEvent) {
+
+this.events = this.events.filter((e)=> e.title !== eventToDelete.title);
+
+
+}
 
   filterBy: string = '';
   newEvent: IEvent = {
