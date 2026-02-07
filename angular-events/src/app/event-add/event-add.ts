@@ -46,8 +46,6 @@ this.newEvent = {
       date: '',
     };
 
-
-
 }
 
 }

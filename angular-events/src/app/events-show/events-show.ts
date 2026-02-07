@@ -16,47 +16,20 @@ import { EventAdd } from "../event-add/event-add";
 })
 export class EventsShow {
 
+  deleteEvent(eventToDelete: IEvent) {
+
+    this.events = this.events.filter((e) => e.title !== eventToDelete.title);
 
 
-
-
-
-deleteEvent(eventToDelete: IEvent) {
-
-this.events = this.events.filter((e)=> e.title !== eventToDelete.title);
-
-
-}
+  }
 
   filterBy: string = '';
-  newEvent: IEvent = {
-    title: '',
-    description: '',
-    image: '',
-    price: 0,
-    date: '',
-  };
 
-  addEvent() {
-    this.events.push({ ...this.newEvent });
+  addEvent(nuevoEvento: IEvent) {
+  this.events = [...this.events, nuevoEvento];
+}
 
-    this.newEvent = {
-      title: '',
-      description: '',
-      image: '',
-      price: 0,
-      date: '',
-    };
-  }
 
-  changeImage(fileInput: HTMLInputElement) {
-    if (!fileInput.files || fileInput.files.length === 0) { return; }
-    const reader: FileReader = new FileReader();
-    reader.readAsDataURL(fileInput.files[0]);
-    reader.addEventListener('loadend', e => {
-      this.newEvent.image = reader.result as string;
-    });
-  }
 
   events: IEvent[] = [
     {
@@ -102,7 +75,7 @@ this.events = this.events.filter((e)=> e.title !== eventToDelete.title);
     );
   }
 
-  
+
 }
 
 
