@@ -6,9 +6,11 @@ import { StatusRow } from './status-row/status-row';
 import { HoverButton } from './hover-button/hover-button';
 import { SearchBox } from './search-box/search-box';
 import { PriceView } from './price-view/price-view';
+import { NoticeList } from "./notice-list/notice-list";
+import { NoticeItem } from "./notice-item/notice-item";
 @Component({
   selector: 'app-root',
-  imports: [UserProfile, TextStyle, StatusRow, HoverButton, SearchBox, PriceView],
+  imports: [UserProfile, TextStyle, StatusRow, HoverButton, SearchBox, PriceView, NoticeList, NoticeItem],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,0 +1,14 @@
+<h1>EJERCICIOS CORTOS (SEMANA 3)</h1>
+
+
+<div class="lista">
+  <h2 class="title">Avisos</h2>
+  <ul>
+    @for (aviso of avisos; track $index) {
+    <notice-item>aviso="aviso"></notice-item>
+
+    } @empty {
+    <li>No hay avisos disponibles</li>
+    }
+  </ul>
+</div>
