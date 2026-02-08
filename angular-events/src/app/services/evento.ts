@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IEvent } from '../../interfaces/i-event';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 
@@ -7,29 +9,30 @@ import { IEvent } from '../../interfaces/i-event';
   providedIn: 'root',
 })
 export class Evento {
-  constructor() { }
 
-  getEventos(): IEvent[] {
-    return [
-      {
-        title: 'Concierto eladio carrion',
-        image: 'eventoEE.jpg',
-        date: '2026-07-04',
-        description: 'Concierto de trap en el palau Sant Jordi',
-        price: 55,
-      },
-      {
-        title: 'Concierto anuel',
-        image: 'eventoA.jpg',
-        date: '2026-04-25',
-        description: 'Concierto de trap en el Roig Arena',
-        price: 60,
-      }
-    ];
+  private eventsEndpoint = 'http://localhost:3000/eventos';
+  
+  constructor(private http: HttpClient) { }
 
-  }
+getEventos(): Observable<IEvent[]> {
+  return this.http.get<IEvent[]>(this.eventsEndpoint);
+}
+
+addEvento(evento: IEvent): Observable<IEvent> {
+  return this.http.post<IEvent>(this.eventsEndpoint, evento);
+}
+
+deleteEvento(id: string): Observable<any> {
+  return this.http.delete(`${this.eventsEndpoint}/${id}`);
+}
+
+
+
 
 
 }
+
+
+
 
 

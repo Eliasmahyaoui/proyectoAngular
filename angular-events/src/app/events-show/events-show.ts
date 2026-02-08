@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { IEvent } from '../../interfaces/i-event';
 import { CurrencyPipe, DatePipe, TitleCasePipe } from '@angular/common';
 import { EventFilterPipe } from '../pipes/event-filter-pipe';
@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { EventItem } from "../event-item/event-item";
 import { EventAdd } from "../event-add/event-add";
 import { Evento } from '../services/evento';
+import { Observable } from 'rxjs';
 
 
 
@@ -16,63 +17,40 @@ import { Evento } from '../services/evento';
   styleUrl: './events-show.css',
 })
 export class EventsShow {
+
   filterBy: string = '';
+  events: IEvent[] = [];
 
+  constructor(private eventoService: Evento) {}
 
-  events: IEvent[]=[];
-  constructor(private Evento: Evento){}
-
-  ngOnInit(){
-    this.events= this.Evento.getEventos();
+  ngOnInit() {
+    this.eventoService.getEventos().subscribe({
+      next: (data) => this.events = data,
+      error: (err) => console.error(err)
+    });
   }
 
-
-
-
-
-
-
   deleteEvent(eventToDelete: IEvent) {
-    this.events = this.events.filter((e) => e.title !== eventToDelete.title);
+    this.events = this.events.filter(e => e.id !== eventToDelete.id);
   }
 
   addEvent(nuevoEvento: IEvent) {
-  this.events = [...this.events, nuevoEvento];
-}
-
-
-
-
-
-  get filteredEvents(): IEvent[] {
-    if (!this.filterBy) {
-      return this.events;
-    }
-
-    const filter = this.filterBy.toLowerCase();
-    return this.events.filter(event =>
-      event.title.toLowerCase().includes(filter)
-    );
+    this.events = [...this.events, nuevoEvento];
   }
 
   orderDate() {
     this.filterBy = '';
-    this.events.sort((a, b) => {
-      let fechaA = new Date(a.date);
-      let fechaB = new Date(b.date);
-      return fechaA.getTime() - fechaB.getTime();
-    });
+    this.events.sort(
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    );
   }
 
   orderPrice() {
     this.filterBy = '';
-    this.events.sort((a, b) =>
-      a.price - b.price
-    );
+    this.events.sort((a, b) => a.price - b.price);
   }
-
-
 }
+
 
 
 

@@ -20,7 +20,7 @@ newEvent: IEvent = {
   };
 
 
-@Output() addEvento= new EventEmitter<IEvent>();
+ @Output() addEvento= new EventEmitter<IEvent>();
 
 
 changeImage(fileInput: HTMLInputElement) {
