@@ -13,14 +13,14 @@ export class Evento {
     return [
       {
         title: 'Concierto eladio carrion',
-        image: '/eventoEE.jpg',
+        image: 'eventoEE.jpg',
         date: '2026-07-04',
         description: 'Concierto de trap en el palau Sant Jordi',
         price: 55,
       },
       {
         title: 'Concierto anuel',
-        image: '/eventoA.jpg',
+        image: 'eventoA.jpg',
         date: '2026-04-25',
         description: 'Concierto de trap en el Roig Arena',
         price: 60,
