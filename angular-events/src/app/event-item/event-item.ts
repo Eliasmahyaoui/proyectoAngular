@@ -11,6 +11,7 @@ import { CurrencyPipe, DatePipe, TitleCasePipe } from '@angular/common';
 export class EventItem {
 
   @Input() event!: IEvent;
+  
   @Output() deleteEvento=  new EventEmitter<void>();
 
 
@@ -25,6 +26,6 @@ this.deleteEvento.emit();
 
 
 
- 
+
 
 }
